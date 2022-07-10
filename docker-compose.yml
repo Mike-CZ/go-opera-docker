@@ -1,0 +1,15 @@
+version: '3.9'
+
+networks:
+  opera-network:
+    driver: bridge
+
+services:
+  app:
+    image: golang:1.18-buster
+    command: tail -f /dev/null
+    volumes:
+      - $OPERA_PATH:/var/opera
+      - $OPERA_DATA_PATH:/root/.opera
+    networks:
+      - opera-network
