@@ -6,10 +6,12 @@ networks:
 
 services:
   app:
-    image: golang:1.18-buster
-    command: tail -f /dev/null
+    build: ./app
+    ports:
+      - "2345:2345"
     volumes:
       - $OPERA_PATH:/var/opera
+      - $GO_ETHEREUM_PATH:/var/go-ethereum
       - $OPERA_DATA_PATH:/root/.opera
     networks:
       - opera-network
