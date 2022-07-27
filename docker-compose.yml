@@ -9,6 +9,8 @@ services:
     build: ./app
     ports:
       - "2345:2345"
+      - "80:18545"    # http rpc
+      - "18546:18546" # wss rpc
     volumes:
       - $OPERA_PATH:/var/opera
       - $GO_ETHEREUM_PATH:/var/go-ethereum
